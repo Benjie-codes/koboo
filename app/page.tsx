@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, Zap, LayoutTemplate, Calculator, CheckCircle2 } from "lucide-react";
+import { Tiles } from "@/components/ui/tiles";
 
 const container = {
   hidden: { opacity: 0 },
@@ -17,19 +18,24 @@ const container = {
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const } },
 };
 
 export default function HomePage() {
   return (
     <div className="space-y-24 sm:space-y-32">
       {/* Hero Section */}
-      <section className="relative pt-5 sm:pt-10 flex flex-col items-center text-center">
+      <section className="relative pt-5 sm:pt-10 flex flex-col items-center text-center overflow-hidden">
+        {/* Tiles Background */}
+        <div className="absolute inset-0 z-0 h-[500px] w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] opacity-40 pointer-events-none select-none">
+          <Tiles rows={30} cols={20} tileSize="lg" className="scale-110" />
+        </div>
         <motion.div
+
           variants={container}
           initial="hidden"
           animate="show"
-          className="space-y-4 max-w-4xl mx-auto flex flex-col items-center"
+          className="space-y-4 max-w-4xl mx-auto flex flex-col items-center relative z-10"
         >
           <motion.div variants={item} className="space-y-6 flex flex-col items-center">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[color:var(--koboo-secondary)]/10 text-[color:var(--koboo-secondary)] text-xs font-semibold uppercase tracking-wider border border-[color:var(--koboo-secondary)]/20">
