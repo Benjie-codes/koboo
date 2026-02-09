@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 import { ArrowRight, Shield, Zap, LayoutTemplate, Calculator, CheckCircle2 } from "lucide-react";
 import { Tiles } from "@/components/ui/tiles";
+import { DotPattern } from "@/components/ui/dot-pattern";
 
 const container = {
   hidden: { opacity: 0 },
@@ -26,10 +28,23 @@ export default function HomePage() {
     <div className="space-y-24 sm:space-y-32">
       {/* Hero Section */}
       <section className="relative pt-5 sm:pt-10 flex flex-col items-center text-center overflow-hidden">
-        {/* Tiles Background */}
-        <div className="absolute inset-0 z-0 h-[500px] w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] opacity-40 pointer-events-none select-none">
-          <Tiles rows={30} cols={20} tileSize="lg" className="scale-110" />
+        {/* Tiles Background (Commented Out) */}
+        {/* <div className="absolute inset-0 z-0 h-[600px] w-full [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_70%)] opacity-40 pointer-events-none select-none">
+          <Tiles rows={30} cols={15} tileSize="xl" className="scale-105" />
+        </div> */}
+
+        {/* Dot Pattern Background */}
+        <div className="absolute inset-0 z-0 h-[600px] w-full [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black_70%)] pointer-events-none select-none">
+          <DotPattern
+            width={32}
+            height={32}
+            cx={1}
+            cy={1}
+            cr={1.5}
+            className={cn("[mask-image:radial-gradient(ellipse_at_center,white,transparent)]", "opacity-50")}
+          />
         </div>
+
         <motion.div
 
           variants={container}

@@ -44,28 +44,49 @@ export default function RootLayout({
         <div className="noise-overlay" aria-hidden="true" />
         <div className="koboo-grid-lines" aria-hidden="true" />
         <div className="koboo-shell">
-          <header className="flex items-center justify-between gap-4 border-b border-black/5 pb-4 sm:pb-6">
-            <Link href="/" className="flex items-baseline gap-1">
-              <span className="font-display text-xl tracking-tight">Koboo</span>
-              <span className="text-xs font-medium uppercase tracking-[0.26em] text-[color:var(--koboo-muted)]">
-                Tax
-              </span>
-            </Link>
-            <nav className="hidden items-center gap-6 text-xs font-medium uppercase tracking-[0.2em] sm:flex">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-[color:var(--koboo-muted)] transition-colors hover:text-[color:var(--koboo-ink)]"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <div className="flex items-center gap-3 sm:hidden">
-              <Link href="/calculator" className="koboo-button-primary text-[0.65rem] px-4 py-2">
-                Open Calculator
+          <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[color:var(--koboo-bg)]/80 border-b border-[color:var(--koboo-ink)]/5">
+            <div className="flex h-16 sm:h-20 items-center justify-between px-4 sm:px-0">
+              {/* Logo Area */}
+              <Link href="/" className="flex items-center gap-2 group">
+                <div className="w-8 h-8 rounded-full bg-[color:var(--koboo-ink)] text-white flex items-center justify-center font-display text-lg font-bold group-hover:bg-[color:var(--koboo-secondary)] transition-colors">
+                  K
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display text-xl font-bold tracking-tight text-[color:var(--koboo-ink)] leading-none">Koboo</span>
+                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-[color:var(--koboo-secondary)] leading-none mt-0.5">
+                    Tax Check
+                  </span>
+                </div>
               </Link>
+
+              {/* Desktop Nav - Centered/Right */}
+              <nav className="hidden md:flex items-center gap-8">
+                {navItems.filter(i => i.href !== '/calculator').map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm font-medium text-[color:var(--koboo-muted)] hover:text-[color:var(--koboo-ink)] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[color:var(--koboo-secondary)] after:transition-all hover:after:w-full py-1"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+
+              {/* Calculator CTA - Desktop & Mobile */}
+              <div className="flex items-center gap-4">
+                <Link
+                  href="/calculator"
+                  className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-[color:var(--koboo-ink)] px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[color:var(--koboo-secondary)] hover:scale-105 active:scale-95"
+                >
+                  Open Calculator
+                </Link>
+                <Link
+                  href="/calculator"
+                  className="sm:hidden inline-flex h-9 items-center justify-center rounded-full bg-[color:var(--koboo-ink)] px-4 text-xs font-semibold text-white"
+                >
+                  Calc
+                </Link>
+              </div>
             </div>
           </header>
 

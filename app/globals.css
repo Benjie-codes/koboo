@@ -43,7 +43,7 @@ main {
 }
 
 .koboo-shell {
-  @apply mx-auto flex min-h-screen max-w-prose flex-col px-4 pb-10 pt-6 sm:px-6 lg:px-8 lg:pt-10;
+  @apply mx-auto flex min-h-screen max-w-prose flex-col 
 }
 
 .koboo-grid-lines {

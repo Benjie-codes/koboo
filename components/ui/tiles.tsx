@@ -9,13 +9,14 @@ interface TilesProps {
     rows?: number
     cols?: number
     tileClassName?: string
-    tileSize?: "sm" | "md" | "lg"
+    tileSize?: "sm" | "md" | "lg" | "xl"
 }
 
 const tileSizes = {
     sm: "w-8 h-8",
     md: "w-9 h-9 md:w-12 md:h-12",
     lg: "w-12 h-12 md:w-16 md:h-16",
+    xl: "w-16 h-16 md:w-20 md:h-20",
 }
 
 export function Tiles({
