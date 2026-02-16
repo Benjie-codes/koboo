@@ -44,7 +44,7 @@ export default function RootLayout({
         <div className="noise-overlay" aria-hidden="true" />
         <div className="koboo-grid-lines" aria-hidden="true" />
         <div className="koboo-shell">
-          <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[color:var(--koboo-bg)]/80 border-b border-[color:var(--koboo-ink)]/5">
+          <header className="sticky top-0 z-50 px-30 backdrop-blur-md bg-[color:var(--koboo-bg)]/80 border-b border-[color:var(--koboo-ink)]/5">
             <div className="flex h-16 sm:h-20 items-center justify-between px-4 sm:px-0">
               {/* Logo Area */}
               <Link href="/" className="flex items-center gap-2 group">
@@ -84,13 +84,13 @@ export default function RootLayout({
                   href="/calculator"
                   className="sm:hidden inline-flex h-9 items-center justify-center rounded-full bg-[color:var(--koboo-ink)] px-4 text-xs font-semibold text-white"
                 >
-                  Calc
+                  Calculator
                 </Link>
               </div>
             </div>
           </header>
 
-          <main className="flex-1 py-6 sm:py-10">{children}</main>
+          <main className="koboo-body flex-1 py-6 sm:py-10">{children}</main>
 
           <footer className="mt-8 border-t border-black/5 pt-4 text-xs sm:mt-10 sm:pt-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

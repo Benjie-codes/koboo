@@ -58,7 +58,7 @@ export default function HomePage() {
               Nigerian PAYE 2026 Ready
             </span>
 
-            <h1 className="font-display text-6xl sm:text-8xl leading-[0.95] tracking-tight text-[color:var(--koboo-ink)]">
+            <h1 className="font-display lg:text-8xl text-5xl leading-[0.95] tracking-tight text-[color:var(--koboo-ink)]">
               No guesswork. <br className="hidden sm:block" />
               <span className="text-[color:var(--koboo-secondary)]/80 italic font-serif">Just accurate tax.</span>
             </h1>

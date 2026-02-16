@@ -43,7 +43,11 @@ main {
 }
 
 .koboo-shell {
-  @apply mx-auto flex min-h-screen max-w-prose flex-col 
+  @apply mx-auto flex min-h-screen flex-col 
+}
+
+.koboo-body {
+  @apply mx-auto px-10
 }
 
 .koboo-grid-lines {
@@ -86,4 +90,14 @@ main {
 
 .koboo-prose {
   @apply text-sm leading-relaxed text-[color:var(--koboo-muted)];
+}
+
+@media (min-width: 992px) {
+  .koboo-shell {
+    @apply mx-auto flex min-h-screen px-20 flex-col 
+  }
+
+  .koboo-body {
+  @apply mx-auto max-w-prose
+  }
 }
