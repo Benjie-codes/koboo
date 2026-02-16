@@ -17,6 +17,9 @@ const dmSerifDisplay = DM_Serif_Display({
   display: "swap",
 });
 
+import { navItems } from "@/lib/constants";
+import { Navbar } from "@/components/navbar";
+
 export const metadata: Metadata = {
   title: "Koboo — Nigerian Tax Clarity",
   description: "A focused Nigerian tax calculator that shows your real take-home pay with clarity and confidence.",
@@ -24,14 +27,6 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
 };
-
-const navItems = [
-  { href: "/calculator", label: "Calculator" },
-  { href: "/how-it-works", label: "How It Works" },
-  { href: "/deductions", label: "Deductions Guide" },
-  { href: "/employers", label: "For Employers" },
-  { href: "/pricing", label: "Pricing" }
-];
 
 export default function RootLayout({
   children
@@ -44,51 +39,7 @@ export default function RootLayout({
         <div className="noise-overlay" aria-hidden="true" />
         <div className="koboo-grid-lines" aria-hidden="true" />
         <div className="koboo-shell">
-          <header className="sticky top-0 z-50 px-30 backdrop-blur-md bg-[color:var(--koboo-bg)]/80 border-b border-[color:var(--koboo-ink)]/5">
-            <div className="flex h-16 sm:h-20 items-center justify-between px-4 sm:px-0">
-              {/* Logo Area */}
-              <Link href="/" className="flex items-center gap-2 group">
-                <div className="w-8 h-8 rounded-full bg-[color:var(--koboo-ink)] text-white flex items-center justify-center font-display text-lg font-bold group-hover:bg-[color:var(--koboo-secondary)] transition-colors">
-                  K
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-display text-xl font-bold tracking-tight text-[color:var(--koboo-ink)] leading-none">Koboo</span>
-                  <span className="text-[0.6rem] font-bold uppercase tracking-[0.2em] text-[color:var(--koboo-secondary)] leading-none mt-0.5">
-                    Tax Check
-                  </span>
-                </div>
-              </Link>
-
-              {/* Desktop Nav - Centered/Right */}
-              <nav className="hidden md:flex items-center gap-8">
-                {navItems.filter(i => i.href !== '/calculator').map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="text-sm font-medium text-[color:var(--koboo-muted)] hover:text-[color:var(--koboo-ink)] transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[color:var(--koboo-secondary)] after:transition-all hover:after:w-full py-1"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </nav>
-
-              {/* Calculator CTA - Desktop & Mobile */}
-              <div className="flex items-center gap-4">
-                <Link
-                  href="/calculator"
-                  className="hidden sm:inline-flex h-10 items-center justify-center rounded-full bg-[color:var(--koboo-ink)] px-6 text-sm font-semibold text-white shadow-sm transition-all hover:bg-[color:var(--koboo-secondary)] hover:scale-105 active:scale-95"
-                >
-                  Open Calculator
-                </Link>
-                <Link
-                  href="/calculator"
-                  className="sm:hidden inline-flex h-9 items-center justify-center rounded-full bg-[color:var(--koboo-ink)] px-4 text-xs font-semibold text-white"
-                >
-                  Calculator
-                </Link>
-              </div>
-            </div>
-          </header>
+          <Navbar />
 
           <main className="koboo-body flex-1 py-6 sm:py-10">{children}</main>
 
